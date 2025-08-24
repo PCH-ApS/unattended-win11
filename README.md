@@ -1,8 +1,12 @@
-**Welcome to guide on how I create a de-bloated WIN11 installation**
+**Welcome to my guide on how I create a de-bloated WIN11 installation**
 
-# Proxmox Automation
+# Minimal Window 11 
 
-This is my personal take on automating infrastructure using Proxmox.
+This is my personal take on how I can run a minimal windows 11 on laptops and virtual..
+
+My aim is to have a minimal and low footprint windows 11 installation without any - or only a minimal set - of the M365 cloud tools preinstalled, along with other MS "bloatware".
+
+This is not my daily-driver. My daily-driver is a Ubuntu 24.04 with [Omakub](https://omakub.org/)on top. This is great for almost anything I need to do, however for now I still need to be able to run MS Excel with macros to complete some of my tasks - as an example. To do this i want to have small Windows 11 I can use.
 
 The aim is to create a clean and modern way to bring up virtual machines and templates using nothing more than YAML and SSH — no web UI clicks, no Proxmox API, and no guesswork. Just clear config and repeatable tooling.
 
