@@ -8,17 +8,24 @@ My aim is to have a minimal and low footprint windows 11 installation without an
 
 This is not my daily-driver. My daily-driver is a Ubuntu 24.04 with [Omakub](https://omakub.org/)on top. This is great for almost anything I need to do, however for now I still need to be able to run MS Excel with macros to complete some of my tasks - as an example. To do this i want to have small Windows 11 I can use.
 
-The aim is to create a clean and modern way to bring up virtual machines and templates using nothing more than YAML and SSH — no web UI clicks, no Proxmox API, and no guesswork. Just clear config and repeatable tooling.
+The aim is to create a clean and easy way to bring up virtual machines or a computer with Windows 11, so if/when something is not working as expected I can just start over and deploy a new. 
 
-While I’ve worked in tech for a long time, I haven’t been in a developer role for almost 20 years — and there’s a lot I’ve had to relearn. I have a clear vision of what I want to build, but I also knew I’d need help to explore what’s possible with modern Python. So I leaned on AI chatbots along the way: not to do the thinking for me, but to accelerate my learning, suggest better tooling, and guide my structure. 
+# Steps
 
-Much of what’s in this repo can probably be automated more cleverly — or more “Pythonically” — than I’ve done it. But this is what I came up with, and it works for me. It’s readable, testable, and something I can build on.
+The steps I follow to create my Windows 11 are:
+## Download Windows 11 from Microsoft
+*  Go to [Download Windows 11](https://www.microsoft.com/da-dk/software-download/windows11) 
+	* Go to the "Download Windows 11 Disk Image (ISO) for x64 devices" section
+	* Select "Windows 11 (multi-edition ISO for x64 devices)"
+	* Click "Download now"
+	* Select the product language (I use English International)
+	* Click "Confirm"
+	* Go to the "Download – Windows 11 English International" section
+	* Click "64-bit Download"
+	* Verify upon completed download
+		* 
 
-This toolkit is intentionally focused on the **post-install state** of a Proxmox host. I did explore bootstrapping the OS and installing Proxmox programmatically — but decided that the complexity wasn’t worth it. Clicking through the standard installer (`Next`, `Next`, `Finish`) is fast and reliable. Once installed, this repo takes over: connecting to the host, configuring it, creating templates, and provisioning guests.
 
-If you're using this project, make sure you've already installed Proxmox manually. See the [Proxmox Installation](https://pve.proxmox.com/wiki/Installation) docs or my own guide [Promox installation (a prerequisite)](https://github.com/PCH-ApS/proxmox/blob/main/md/Promox%20installation%20(a%20prerequisite).md) — this is a prerequisite for everything else here.
-
-This toolkit is not intended to be the final layer of automation. Instead, it brings Proxmox hosts and guests to a known-good **baseline state** — the point where true Infrastructure-as-Code can take over. With hosts set up, templates in place, and guests provisioned consistently, tools like Ansible, Terraform, or SaltStack can handle configuration, service orchestration, and lifecycle management.
 
 Think of this project as the **foundation layer**: automation that bootstraps your virtual infrastructure, so your real IaC tooling has something solid to build on.
 ## Scripts & Structure
