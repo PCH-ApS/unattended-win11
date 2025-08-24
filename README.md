@@ -32,4 +32,27 @@ The steps I follow to create my Windows 11 are:
 *  Go to [schneegans.de](https://schneegans.de/windows/unattend-generator/) 
 	* Fill out the available options and save the file.
 
+* Region and language settings:
+	
+	| Key                                            | Selecetion            |
+	| ---------------------------------------------- | --------------------- |
+	| Windows display language:                      | English International |
+	| Specify the first language and keyboard layout | True                  |
+	| Language                                       | Danish (Denmark)      |
+	| Kayboard layout                                | Danish                |
+	| Home location                                  | Denmark               |
+	|                                                |                       |
+
+* Setup settings:
+
+| Key                                                           | Selection |
+| ------------------------------------------------------------- | --------- |
+| Bypass Windows 11 requirements check (TPM, Secure Boot, etc.) | True      |
+
+
+| `configure_host.py`  | Prepares host (hostname, sshd, repos)     |
+
+Note: the attached example is for at laptop installation - Change the appropriate usernames, SSID and passwords.
+## Create a USB key with Windows 11 unattended installation
+* Run the "customize_win11_iso.sh" script to create the USB with unattended installation
 
