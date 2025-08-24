@@ -22,40 +22,14 @@ The steps I follow to create my Windows 11 are:
 	* Click "Confirm"
 	* Go to the "Download – Windows 11 English International" section
 	* Click "64-bit Download"
-	* Verify upon completed download
-		* 
+	* Verify upon completed download the SHA256 output matches what Microsoft publishes.
+	  Use the command below on linux to get the hash value of the file.
+```
+		sha256sum ~/Downloads/Win11_24H2_EnglishInternational_x64.iso
+```
+
+## Create the unattended file on schneegans.de
+*  Go to [schneegans.de](https://schneegans.de/windows/unattend-generator/) 
+	* Fill out the available options and save the file.
 
 
-
-Think of this project as the **foundation layer**: automation that bootstraps your virtual infrastructure, so your real IaC tooling has something solid to build on.
-## Scripts & Structure
-
-This project uses modular scripts backed by schema-validated YAML files.
-Each script targets a single layer of Proxmox automation.
-
-| Script               | Role                                      |
-|----------------------|-------------------------------------------|
-| `configure_host.py`  | Prepares host (hostname, sshd, repos)     |
-| `create_template.py` | Converts a cloud image into a VM template |
-| `create_guest.py`    | Clones and configures a guest VM          |
-
-See `/md/` folder for in-depth descriptions and workflows.
-
-## Design Highlights
-
-- **Idempotent**: Re-runs safely — only applies config diffs.
-- **Schema-validated**: YAML configs validated by `cerberus`.
-- **Modular & inspectable**: Small tools, readable logs.
-- **SSH-only**: No Proxmox API or web UI needed.
-
-## Example Guest Config (YAML)
-
-```yaml
-name: "test-server"
-id: 8888
-clone_id: 9001
-vlan: 254
-driver: virtio
-bridge: vmbr0
-memory: 2048
-ci_network: dhcp
